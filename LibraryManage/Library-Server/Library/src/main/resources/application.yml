@@ -1,0 +1,21 @@
+spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    url: jdbc:sqlite:/teach/web/zhang/data.db # SQLite数据库文件的路径
+    driver-class-name: org.sqlite.JDBC # SQLite的JDBC驱动
+  jpa:
+    database-platform: com.ksamar.library.sqlite.SQLDialect # 设置Hibernate的方言为SQLite
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  port: 22223
+devtools:
+  livereload:
+    enabled: true
+    port: 35729 # LiveReload通常使用不同的端口，这里更改为默认的LiveReload端口
+  restart:
+    enabled: true
