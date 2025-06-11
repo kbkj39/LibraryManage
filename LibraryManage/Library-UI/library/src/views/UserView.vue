@@ -441,9 +441,7 @@ let formLabelWidth = 120;
 let users = ref();
 const getUser = () => {
   axios
-    .get(
-      "http://202.194.7.29:22223/user/" + pageNum.value + "/" + pageSize.value
-    )
+    .get("http://localhost:8080/user/" + pageNum.value + "/" + pageSize.value)
     .then((resp) => {
       console.log(resp);
       users.value = resp.data.content;
@@ -521,7 +519,7 @@ const searchUser = () => {
   if (searchInput.value != "") {
     axios
       .get(
-        "http://202.194.7.29:22223/user/search/" +
+        "http://localhost:8080/user/search/" +
           searchModel.value +
           "/" +
           searchInput.value +
@@ -633,7 +631,7 @@ const addUserButton = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/user/save", addUserForm)
+        .post("http://localhost:8080/user/save", addUserForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -707,7 +705,7 @@ const editUserButton = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/user/update", editUserForm)
+        .post("http://localhost:8080/user/update", editUserForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -753,7 +751,7 @@ const deleteUserDialog = (row: any) => {
 const deleteUser = () => {
   if (deleteId.value) {
     axios
-      .post("http://202.194.7.29:22223/user/delete/" + deleteId.value)
+      .post("http://localhost:8080/user/delete/" + deleteId.value)
       .then((resp) => {
         const statusCode = resp.data.statusCode;
 

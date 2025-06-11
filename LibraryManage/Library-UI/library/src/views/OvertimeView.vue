@@ -107,7 +107,7 @@ let overtimes = ref();
 const getOvertime = () => {
   axios
     .get(
-      "http://202.194.7.29:22223/borrow/overtime/" +
+      "http://localhost:8080/borrow/overtime/" +
         pageNum.value +
         "/" +
         pageSize.value
@@ -169,7 +169,7 @@ const searchOvertime = () => {
   if (searchInput.value != "" && searchInput.value != undefined) {
     axios
       .get(
-        "http://202.194.7.29:22223/borrow/overtime/search/" +
+        "http://localhost:8080/borrow/overtime/search/" +
           searchInput.value +
           "/" +
           pageNum.value +
@@ -199,7 +199,7 @@ const overtimeBookDialog = (row: any) => {
 const overtimeBook = () => {
   if (overtimeId.value) {
     axios
-      .post("http://202.194.7.29:22223/borrow/return/" + overtimeId.value)
+      .post("http://localhost:8080/borrow/return/" + overtimeId.value)
       .then((resp) => {
         const statusCode = resp.data.statusCode;
 

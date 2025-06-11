@@ -117,7 +117,7 @@ setInterval(function () {
 
 // 获取仪表盘数据
 const getDashboard = () => {
-  axios.get("http://202.194.7.29:22223/book/dashboard/").then((resp) => {
+  axios.get("http://localhost:8080/book/dashboard/").then((resp) => {
     bookCount.value = resp.data.bookCount;
     overtimeCount.value = resp.data.overtimeCount;
     borrowCount.value = resp.data.borrowCount;
@@ -128,7 +128,7 @@ getDashboard();
 // 获取日志数据
 let logs = ref();
 const getLogs = () => {
-  axios.get("http://202.194.7.29:22223/nav/logs/").then((resp) => {
+  axios.get("http://localhost:8080/nav/logs/").then((resp) => {
     logs.value = resp.data.content;
   });
 };

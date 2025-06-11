@@ -357,9 +357,7 @@ let formLabelWidth = 120;
 let books = ref();
 const getBook = () => {
   axios
-    .get(
-      "http://202.194.7.29:22223/book/" + pageNum.value + "/" + pageSize.value
-    )
+    .get("http://localhost:8080/book/" + pageNum.value + "/" + pageSize.value)
     .then((resp) => {
       books.value = resp.data.content;
       pageTotal.value = resp.data.totalElements;
@@ -440,7 +438,7 @@ const searchBook = () => {
   if (searchInput.value != "") {
     axios
       .get(
-        "http://202.194.7.29:22223/book/search/" +
+        "http://localhost:8080/book/search/" +
           searchModel.value +
           "/" +
           searchInput.value +
@@ -490,7 +488,7 @@ const bookRules = reactive<FormRules>({
 let bookType = ref();
 // 获取图书种类
 const getBookType = () => {
-  axios.get("http://202.194.7.29:22223/book/type").then((resp) => {
+  axios.get("http://localhost:8080/book/type").then((resp) => {
     bookType.value = resp.data;
   });
 };
@@ -522,7 +520,7 @@ const addBookButton = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/book/save", addBookForm)
+        .post("http://localhost:8080/book/save", addBookForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -582,7 +580,7 @@ const editBookButton = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/book/update", editBookForm)
+        .post("http://localhost:8080/book/update", editBookForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -628,7 +626,7 @@ const deleteBookDialog = (row: any) => {
 const deleteBook = () => {
   if (deleteId.value) {
     axios
-      .post("http://202.194.7.29:22223/book/delete/" + deleteId.value)
+      .post("http://localhost:8080/book/delete/" + deleteId.value)
       .then((resp) => {
         const statusCode = resp.data.statusCode;
 

@@ -170,7 +170,7 @@ const updatePassword = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/user/update/admin", updatePasswordForm)
+        .post("http://localhost:8080/user/update/admin", updatePasswordForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -221,7 +221,7 @@ const addBookType = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/type/add", addBookTypeForm)
+        .post("http://localhost:8080/type/add", addBookTypeForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 
@@ -271,7 +271,7 @@ const deleteBookType = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/type/delete", deleteBookTypeForm)
+        .post("http://localhost:8080/type/delete", deleteBookTypeForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 

@@ -153,7 +153,7 @@ const addUserButton = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       axios
-        .post("http://202.194.7.29:22223/user/save", addUserForm)
+        .post("http://localhost:8080/user/save", addUserForm)
         .then((resp) => {
           const statusCode = resp.data.statusCode;
 

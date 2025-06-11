@@ -96,7 +96,7 @@ let user = ref({
 });
 // 获取用户信息
 const getUserInfo = () => {
-  axios.get("http://202.194.7.29:22223/user/get/" + username).then((resp) => {
+  axios.get("http://localhost:8080/user/get/" + username).then((resp) => {
     user.value = resp.data;
     console.log(resp.data);
   });
@@ -105,7 +105,7 @@ const getUserInfo = () => {
 // 借阅图书信息
 let books = ref();
 const getBooks = () => {
-  axios.get("http://202.194.7.29:22223/borrow/get/" + username).then((resp) => {
+  axios.get("http://localhost:8080/borrow/get/" + username).then((resp) => {
     books.value = resp.data;
   });
 };
@@ -138,7 +138,7 @@ const updatePassword = (formEl: FormInstance | undefined) => {
     if (valid) {
       axios
         .post(
-          "http://202.194.7.29:22223/user/update/user/" + username,
+          "http://localhost:8080/user/update/user/" + username,
           updatePasswordForm
         )
         .then((resp) => {

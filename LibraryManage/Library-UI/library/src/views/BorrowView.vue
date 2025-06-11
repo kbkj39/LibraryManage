@@ -72,7 +72,7 @@ import { ElMessageBox } from "element-plus";
 const searchBookInput = ref("9787121349030");
 const searchBook = () => {
   axios
-    .get("http://202.194.7.29:22223/book/find/isbn/" + searchBookInput.value)
+    .get("http://localhost:8080/book/find/isbn/" + searchBookInput.value)
     .then((resp) => {
       book.value = resp.data;
     });
@@ -100,7 +100,7 @@ const userInfo = reactive({
 // 借阅图书按钮
 const borrowBook = () => {
   axios
-    .post("http://202.194.7.29:22223/borrow/" + searchBookInput.value, userInfo)
+    .post("http://localhost:8080/borrow/" + searchBookInput.value, userInfo)
     .then((resp) => {
       const statusCode = resp.data.statusCode;
 

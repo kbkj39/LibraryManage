@@ -3,7 +3,7 @@ spring:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
   datasource:
-    url: jdbc:sqlite:/teach/web/zhang/data.db # SQLite数据库文件的路径
+    url: jdbc:sqlite:C:/Users/76738/Desktop/课程/web/LibraryManage/LibraryManage/data.db # SQLite数据库文件的路径
     driver-class-name: org.sqlite.JDBC # SQLite的JDBC驱动
   jpa:
     database-platform: com.ksamar.library.sqlite.SQLDialect # 设置Hibernate的方言为SQLite
@@ -12,7 +12,7 @@ spring:
       hibernate:
         format_sql: true
 server:
-  port: 22223
+  port: 8080
 devtools:
   livereload:
     enabled: true

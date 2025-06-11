@@ -104,9 +104,7 @@ import { ElMessageBox } from "element-plus";
 let borrows = ref();
 const getBorrow = () => {
   axios
-    .get(
-      "http://202.194.7.29:22223/borrow/" + pageNum.value + "/" + pageSize.value
-    )
+    .get("http://localhost:8080/borrow/" + pageNum.value + "/" + pageSize.value)
     .then((resp) => {
       borrows.value = resp.data.content;
       pageTotal.value = resp.data.totalElements;
@@ -163,7 +161,7 @@ const searchBorrow = () => {
   if (searchInput.value != "") {
     axios
       .get(
-        "http://202.194.7.29:22223/borrow/search/" +
+        "http://localhost:8080/borrow/search/" +
           searchInput.value +
           "/" +
           pageNum.value +
@@ -191,7 +189,7 @@ const returnBookDialog = (row: any) => {
 const returnBook = () => {
   if (returnId.value) {
     axios
-      .post("http://202.194.7.29:22223/borrow/return/" + returnId.value)
+      .post("http://localhost:8080/borrow/return/" + returnId.value)
       .then((resp) => {
         const statusCode = resp.data.statusCode;
 

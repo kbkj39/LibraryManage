@@ -132,7 +132,7 @@ const login = async (formEl: FormInstance | undefined) => {
 
         // 发送客户端请求，用户信息作为请求体
         const resp = await axios.post(
-          "http://202.194.7.29:22223/login/admin",
+          "http://localhost:8080/login/admin",
           loginForm,
           {
             params: { code: dynamicValidateForm.value.code }, // 如果需要将验证码作为查询参数发送
@@ -175,12 +175,9 @@ const login = async (formEl: FormInstance | undefined) => {
 };
 const checkCaptcha = async (captcha: string) => {
   try {
-    const resp = await axios.post(
-      "http://202.194.7.29:22223/code/verify/check",
-      {
-        code: captcha,
-      }
-    );
+    const resp = await axios.post("http://localhost:8080/code/verify/check", {
+      code: captcha,
+    });
     return resp.data; // 返回布尔值
   } catch (error) {
     ElMessageBox.alert("验证码验证请求失败，请稍后再试", "错误", {
@@ -191,7 +188,7 @@ const checkCaptcha = async (captcha: string) => {
 };
 const changeVerify = () => {
   axios
-    .get("http://202.194.7.29:22223/code/verify", {
+    .get("http://localhost:8080/code/verify", {
       responseType: "arraybuffer",
     })
     .then((response) => {

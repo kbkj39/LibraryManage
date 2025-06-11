@@ -97,9 +97,7 @@ import axios from "axios";
 let books = ref();
 const getBook = () => {
   axios
-    .get(
-      "http://202.194.7.29:22223/book/" + pageNum.value + "/" + pageSize.value
-    )
+    .get("http://localhost:8080/book/" + pageNum.value + "/" + pageSize.value)
     .then((resp) => {
       books.value = resp.data.content;
       pageTotal.value = resp.data.totalElements;
@@ -181,7 +179,7 @@ const searchBook = () => {
   if (searchInput.value != "") {
     axios
       .get(
-        "http://202.194.7.29:22223/book/search/" +
+        "http://localhost:8080/book/search/" +
           searchModel.value +
           "/" +
           searchInput.value +
