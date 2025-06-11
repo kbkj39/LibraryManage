@@ -28,6 +28,7 @@
 2、运行项目
 
 ## 项目截图
+![bk1](https://github.com/kbkj39/LibraryManage/blob/master/LibraryManage/Library-Server/Library/src/main/resources/public/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-06-10%20215325.png)
 ![bk2](https://github.com/kbkj39/LibraryManage/blob/master/LibraryManage/Library-Server/Library/src/main/resources/public/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-06-10%20215405.png)
 
 管理员账号`admin`，密码`admin`
